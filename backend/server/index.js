@@ -1,10 +1,25 @@
 //import frameworks and libraries
 import express from "express"
+import mongoose from "mongoose"
+import dotenv from 'dotenv'
 
-const port = 3000
+dotenv.config()
 
 const app = express()
 
-app.listen(port, () =>{
-    console.log("server listening on port "+ port)
+mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log("Successfully connected to database")
+    })
+    .catch((err) => console.log("Connection failed with error:" + err));
+
+app.listen(process.env.PORT, () => {
+    console.log("Succesfully running server on PORT "+ process.env.PORT)
+}).on('error', (err) =>{
+    if(err.errno === 'EADDRINUSE'){
+        console.log("PORT "+process.env.PORT+" in use")
+    }else{
+        console.log(err)
+    }
 })
+
