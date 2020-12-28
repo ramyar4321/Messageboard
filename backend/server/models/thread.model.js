@@ -1,11 +1,12 @@
-import mongoose, { model } from 'mongoose'
-import Message from './message.model'
+import mongoose from 'mongoose'
+import Message from './message.model.js'
 
-const thread = new mongoose.Schema({
+const ThreadSchema = new mongoose.Schema({
     orginalPost: Message,
     replies: [Message]
 })
 
-const Thread = mongoose.model('Thread', thread)
+const ThreadModel = mongoose.model('Thread', ThreadSchema)
 
-module.exports = Thread
+
+export default ThreadModel
