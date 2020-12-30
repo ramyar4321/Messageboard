@@ -1,23 +1,22 @@
 import mongoose from 'mongoose'
 
-const MessageSchema = new mongoose.Schema({
+const OrginalMessageSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        unique: true
     },
     message: {
         type: String,
-        required: true,
+        required: false,
         default: ""
     },
     image: {
         type: String,
-        required: true,
+        required: false,
         default: ""
     },
     createdAt: { type: Date, default: new Date() }
 })
 
 
-export default MessageSchema
+export default OrginalMessageSchema

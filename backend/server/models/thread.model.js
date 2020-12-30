@@ -1,9 +1,10 @@
 import mongoose from 'mongoose'
-import Message from './message.model.js'
+import OrginalMessage from './originalMessage.model.js'
+import ReplyMessage from './replyMessage.model.js'
 
 const ThreadSchema = new mongoose.Schema({
-    orginalPost: Message,
-    replies: [Message]
+    orginalPost:  OrginalMessage,
+    replies: [ReplyMessage]
 })
 
 const ThreadModel = mongoose.model('Thread', ThreadSchema)

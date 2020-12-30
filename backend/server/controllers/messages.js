@@ -1,3 +1,4 @@
+import mongoose from 'mongoose'
 import Thread from '../models/thread.model.js'
 
 export const getThreads = (req, res) => {
@@ -11,7 +12,7 @@ export const getThreads = (req, res) => {
 
 export const getThread = (req, res) => {
 
-    const { id } = req.param.id
+    const { id } = req.params
 
     Thread.findById(id)
     .then((thread) =>{
@@ -28,31 +29,32 @@ export const postThread = (req, res) => {
     const newThread = new Thread({ orginalPost, replies })
 
     newThread.save()
-    .then(() =>{
-        res.status(201).json({message: "Thread added"})
+    .then((thread) =>{
+        res.status(201).json(thread)
     }).catch((err) => {
         res.status(409).json({message: "Error: " + err})
     })
 }
 
 export const updateThread = (req, res) => {
-    const { id } = req.param.id
-    const { replies } = req.body
+    const { id } = req.params
+    const reply = req.body
 
     Thread.findOneAndUpdate(
         {_id: id},
-        {$push: replies}
-    ).then(() =>{
-        res.status(201).json({message: "Thread updated"})
+        {$push: {replies: reply}},
+        {new: true}
+    ).then((thread) =>{
+        res.status(201).json(thread)
     }).catch((err) => {
         res.status(409).json({message: "Error: " + err})
     })
 }
 
 export const deleteThread = (req, res) => {
-    const { id } = req.param.id
+    const { id } = req.params
 
-    Thread.findOneAndDelete(id)
+    Thread.findOneAndDelete({_id: id})
     .then((thread) =>{
         res.status(200).json(thread)
     })
