@@ -1,11 +1,13 @@
 import React from 'react'
-import {Grid} from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import Form from './components/Form/Form'
+import Threads from './components/Threads/Threads'
 
 const App = () => {
     return (
-        <Grid container justify={'center'} spacing ={2}>
+        <Grid>
             <Form />
+            <Threads />
         </Grid>
     )
 }

@@ -11,7 +11,8 @@ const Form = () => {
     }
 
     return (
-        <Grid item xs={12} sm={8} md={6}>
+        <Grid container justify="center" spacing={2}>
+            <Grid item xs={12} sm={8} md={6}>
             <Paper className={classes.paper}>
                 <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                     <Typography variant="h6">Create New Message Thread</Typography>
@@ -24,6 +25,7 @@ const Form = () => {
                     <Button variant="contained" color="secondary" size="medium" fullWidth>Clear</Button>
                 </form>
             </Paper>
+        </Grid>
         </Grid>
     )
 }
