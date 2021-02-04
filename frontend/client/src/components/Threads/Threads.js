@@ -8,7 +8,7 @@ const Threads = () => {
         {
             id: "1",
             originalMessage: {
-                id:"2",
+                id: "2",
                 title: "Title1",
                 message: "Thread1",
                 image: "Image",
@@ -16,13 +16,13 @@ const Threads = () => {
             },
             replies: [
                 {
-                    id:"3",
+                    id: "3",
                     message: "First Reply",
                     image: "ImageE",
                     createdAt: "Date"
                 },
                 {
-                    id:"4",
+                    id: "4",
                     message: "First Reply",
                     image: "ImageE",
                     createdAt: "Date"
@@ -30,9 +30,9 @@ const Threads = () => {
             ]
         },
         {
-            id:"5",
+            id: "5",
             originalMessage: {
-                id:"6",
+                id: "6",
                 title: "Title2",
                 message: "Thread2",
                 image: "Image",
@@ -40,13 +40,13 @@ const Threads = () => {
             },
             replies: [
                 {
-                    id:"7",
+                    id: "7",
                     message: "First Reply",
                     image: "ImageE",
                     createdAt: "Date"
                 },
                 {
-                    id:"8",
+                    id: "8",
                     message: "First Reply",
                     image: "ImageE",
                     createdAt: "Date"
@@ -56,12 +56,12 @@ const Threads = () => {
     ]
 
     return (
-        <Grid container justify="center" spacing={2}>
-            <Paper>
-                {threads.map((thread) => 
-                    <Thread key={thread.id} value={thread}/>
+        <Grid container justify="center">
+            <Grid item xs={10}>
+                {threads.map((thread) =>
+                    <Thread key={thread.id} value={thread} />
                 )}
-            </Paper>
+            </Grid>
         </Grid>
     )
 }
