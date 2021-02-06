@@ -1,20 +1,36 @@
 import React from 'react';
-import { Grid, Typography, Card, CardContent } from '@material-ui/core';
+import { Grid, Typography, Card, CardContent, CardMedia } from '@material-ui/core';
 import useStyles from './styles';
+import img from '../../../../../images/spacecowboy.jpg'
 
 const Reply = (reply) => {
     const { id, title, message, image, createdAt } = reply
 
     const classes = useStyles()
     return (
-        <Grid container justify="flex-end">
-            <Card className={classes.message}>
-                <CardContent>
-                    <Typography>
-                        Reply Message
+        <Grid container className={classes.root}>
+            <Grid item>
+                <Card className={classes.card}>
+                    <CardMedia
+                        className={classes.image}
+                        src={img} component="img" />
+                    <CardContent className={classes.content}>
+                        <Grid item className={classes.header}>
+                            <Typography className={classes.details}>
+                                Orginal Message Title
+                        </Typography>
+                            <Typography className={classes.details}>
+                                Orginal Message Date
+                        </Typography>
+                        </Grid>
+                        <Typography className={classes.message}>
+                            Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message
+                            Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message
+                            Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message
                     </Typography>
-                </CardContent>
-            </Card>
+                    </CardContent>
+                </Card>
+            </Grid>
         </Grid>
     )
 }
