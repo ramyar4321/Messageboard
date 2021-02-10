@@ -1,10 +1,9 @@
 import React from 'react';
 import { Grid, Typography, Card, CardContent, CardMedia } from '@material-ui/core';
 import useStyles from './styles';
-import img from '../../../../../images/spacecowboy.jpg'
 
-const Reply = (reply) => {
-    const { id, title, message, image, createdAt } = reply
+const Reply = ({reply}) => {
+    const { title, message, image, createdAt } = reply
 
     const classes = useStyles()
     return (
@@ -13,20 +12,18 @@ const Reply = (reply) => {
                 <Card className={classes.card}>
                     <CardMedia
                         className={classes.image}
-                        src={img} component="img" />
+                        src={image} component="img" />
                     <CardContent className={classes.content}>
                         <Grid item className={classes.header}>
                             <Typography className={classes.details}>
-                                Orginal Message Title
+                                {title}
                         </Typography>
                             <Typography className={classes.details}>
-                                Orginal Message Date
+                                {createdAt}
                         </Typography>
                         </Grid>
                         <Typography className={classes.message}>
-                            Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message
-                            Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message
-                            Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message
+                            {message}
                     </Typography>
                     </CardContent>
                 </Card>

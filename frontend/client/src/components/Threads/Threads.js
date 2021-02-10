@@ -1,66 +1,28 @@
 import React from 'react'
-import { Paper, Grid } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import Thread from './Thread/Thread'
+import { useDispatch, useSelector } from 'react-redux'
+import {deleteThread} from '../../actions/'
 
 const Threads = () => {
 
-    const threads = [
-        {
-            id: "1",
-            originalMessage: {
-                id: "2",
-                title: "Title1",
-                message: "Thread1",
-                image: "Image",
-                createdAt: ""
-            },
-            replies: [
-                {
-                    id: "3",
-                    message: "First Reply",
-                    image: "ImageE",
-                    createdAt: "Date"
-                },
-                {
-                    id: "4",
-                    message: "First Reply",
-                    image: "ImageE",
-                    createdAt: "Date"
-                }
-            ]
-        },
-        {
-            id: "5",
-            originalMessage: {
-                id: "6",
-                title: "Title2",
-                message: "Thread2",
-                image: "Image",
-                createdAt: ""
-            },
-            replies: [
-                {
-                    id: "7",
-                    message: "First Reply",
-                    image: "ImageE",
-                    createdAt: "Date"
-                },
-                {
-                    id: "8",
-                    message: "First Reply",
-                    image: "ImageE",
-                    createdAt: "Date"
-                }
-            ]
-        }
-    ]
+    const threads = useSelector((state) => state.messageReducer)
+    const dispatch = useDispatch()
+
+    //We want a maximum of 4 threads total.
+    // If number of threads is greater the 4,
+    // remove the oldest thread
+    if (threads.length > 4){
+        dispatch(deleteThread())
+    }
 
     return (
         <Grid container justify="center">
             <Grid item xs={10}>
-                {threads.map((thread) =>
-                    <Thread key={thread.id} value={thread} />
-                )}
+                {threads.map((thread) => {
+                    console.log(thread)
+                    return <Thread thread={thread} />
+                })}
             </Grid>
         </Grid>
     )

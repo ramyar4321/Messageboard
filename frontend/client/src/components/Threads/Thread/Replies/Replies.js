@@ -2,14 +2,15 @@ import React from 'react'
 import Reply from './Reply/Reply'
 import { Grid } from '@material-ui/core';
 
-const Replies = (prop) => {
-    const {replies} = prop
-    console.log(prop)
+const Replies = ( { replyMessages} ) => {
+    const {replies} = replyMessages
     console.log(replies)
+    console.log(replyMessages)
+
     return(
         <Grid>
             {replies.map((reply) => 
-                <Reply key={reply.id} value={reply} />
+                <Reply reply={reply}/>
             )}
         </Grid>
     )

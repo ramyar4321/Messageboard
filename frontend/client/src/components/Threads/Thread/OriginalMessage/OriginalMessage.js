@@ -1,38 +1,38 @@
 import React from 'react';
 import { Grid, Card, CardContent, Typography, CardMedia } from '@material-ui/core';
 import useStyles from './styles'
-import img from '../../../../images/spacecowboy.jpg'
 
-const OriginalMessage = (orginalMessage) => {
-    const { id, title, message, image, createdAt } = orginalMessage
+const OriginalMessage = ({ originalMessage }) => {
+    const { createdAt, inputFile, message, title } = originalMessage
+    console.log(originalMessage)
+    console.log(title)
+    console.log(message)
+    console.log(createdAt)
 
     const classes = useStyles()
 
     return (
-        <Grid container className={classes.root}>
-            <Grid item>
-                <Card className={classes.card} >
-                    <CardMedia
-                        className={classes.image}
-                        src={img} component="img" />
-                    <CardContent className={classes.content}>
-                        <Grid item className={classes.header}>
-                            <Typography className={classes.details}>
-                                Orginal Message Title
+        <>
+            <Card className={classes.card} >
+                <CardMedia
+                    className={classes.image}
+                    image={inputFile} />
+                <CardContent className={classes.content}>
+                    <Grid item className={classes.header}>
+                        <Typography className={classes.details}>
+                            {title}
                         </Typography>
-                            <Typography className={classes.details}>
-                                Orginal Message Date
+                        <Typography className={classes.details}>
+                            {createdAt}
                         </Typography>
-                        </Grid>
-                        <Typography className={classes.message}>
-                            Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message
-                            Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message
-                            Long Message Long Message Long Message Long Message Long Message Long Message Long Message Long Message
+                    </Grid>
+                    <Typography className={classes.message}>
+                        {message}
                     </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-        </Grid>
+                </CardContent>
+            </Card>
+
+        </>
     )
 }
 
