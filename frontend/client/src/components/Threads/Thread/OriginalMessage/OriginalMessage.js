@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, CardContent, Typography, CardMedia } from '@material-ui/core';
+import { Paper, Grid, Typography} from '@material-ui/core';
 import useStyles from './styles'
 
 const OriginalMessage = ({ originalMessage }) => {
@@ -12,27 +12,37 @@ const OriginalMessage = ({ originalMessage }) => {
     const classes = useStyles()
 
     return (
-        <>
-            <Card className={classes.card} >
-                <CardMedia
-                    className={classes.image}
-                    image={inputFile} />
-                <CardContent className={classes.content}>
-                    <Grid item className={classes.header}>
-                        <Typography className={classes.details}>
-                            {title}
-                        </Typography>
-                        <Typography className={classes.details}>
-                            {createdAt}
-                        </Typography>
+            <div className={classes.root}>
+                <Paper className={classes.paper}>
+                    <Grid container spacing={2}>
+                        <Grid item className={classes.image}>
+                            <img className={classes.img} src={inputFile} />
+                        </Grid>
+                        <Grid item xs={12} sm container>
+                            <Grid item xs container direction="column" spacing={2}>
+                                <Grid item xs>
+                                    <Grid item className = {classes.header}>
+                                        <Typography className={classes.details} variant="subtitle1">
+                                            {title}
+                                        </Typography>
+                                        <Typography className={classes.details} variant="subtitle1">
+                                            {createdAt}
+                                        </Typography>
+                                    </Grid>
+                                    <Typography variant="body1">
+                                        {message}
+                                    </Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Typography variant="body2" style={{ cursor: 'pointer' }}>
+                                        Edit
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                    <Typography className={classes.message}>
-                        {message}
-                    </Typography>
-                </CardContent>
-            </Card>
-
-        </>
+                </Paper>
+            </div>
     )
 }
 

@@ -1,35 +1,66 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
-    root: {
-        marginRight: '20%',
-        width: '95%',
-    },
-    card: {
-        display: 'flex',
-        flexDirection: 'row',
+    /*card: {
+        //display: 'flex',
+        //flexDirection: 'row',
         marginRight: '10%',
         width: '90%',
-        wordBreak: "break-all",
-        alignItems: 'stretch'
+        //wordBreak: "break-all",
+        //alignItems: 'stretch'
     },
-    image: {
+    cardContent: {
+        display: 'flex',
+        flexDirection: 'row',
+        //width: '80%'
+    },
+    messageImage: {
+        //height: '0',
         width:'20%'
     },
-    content: {
+    messageContent: {
         display: 'flex',
         flexDirection: 'column',
         width: '80%'
     },
-    header: {
-        display: 'flex',
-        alignItems: 'center'
+    messageHeader: {
+        //display: 'flex',
+        //alignItems: 'center',
     },
-    details: {
+    messageDetails: {
         margin: theme.spacing(1,2,1,2)
     },
-    message: {
+    messageMessage: {
         margin: theme.spacing(2,1,2,1)
-    }
+    }*/
+    root: {
+        flexGrow: 1,
+        marginRight: '10%',
+        width: '90%',
+        wordBreak: "break-all",
+        alignItems: 'stretch',
+      },
+      paper: {
+        padding: theme.spacing(2),
+        margin: 'auto',
+        //maxWidth: 500,
+      },
+      image: {
+        maxWidth: '50%',
+        maxHeight: '50%',
+      },
+      header: {
+          display: 'flex',
+          flexDirection: 'row',
+      },
+      details: {
+          marginRight: '20px',
+      },
+      img: {
+        margin: 'auto',
+        display: 'block',
+        maxWidth: '100%',
+        maxHeight: '100%',
+      },
 })
 )

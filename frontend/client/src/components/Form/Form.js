@@ -28,6 +28,10 @@ const Form = () => {
         dispatch(createThread(thread))
     }
 
+    const handleClear = () => {
+        setFormState({title: '', message: '', inputFile: ''})
+    }
+
     return (
         <Grid container justify="center" spacing={2}>
             <Grid item xs={12} sm={8} md={6}>
@@ -37,10 +41,10 @@ const Form = () => {
                         <TextField name="title" variant="outlined" label="Title" fullWidth value={formState.title} onChange={(e) => setFormState({...formState, title: e.target.value})}/>
                         <TextField name="message" variant="filled" label="Message" multiline rows={5} rowsMax={5} fullWidth value={formState.message} onChange={(e) => setFormState({...formState, message: e.target.value})}/>
                         <div className={classes.inputFile}>
-                            <FileBase multiple={false} onDone={({ base64 }) => setFormState({ ...formState, inputFile: base64})} />
+                            <FileBase type="file" multiple={false} onDone={({ base64 }) => setFormState({ ...formState, inputFile: base64})} />
                         </div>
                         <Button variant="contained" color="primary" size="large" fullWidth onClick={handleSubmit}>Submit</Button>
-                        <Button variant="contained" color="secondary" size="medium" fullWidth>Clear</Button>
+                        <Button variant="contained" color="secondary" size="medium" fullWidth onClick={handleClear}>Clear</Button>
                     </form>
                 </Paper>
             </Grid>
