@@ -2,29 +2,33 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
     root: {
-        marginLeft: '5%',
-        width: '95%'
-    },
-    card: {
-        display: 'flex',
-        flexDirection: 'row'
-    },
-    image: {
-        width:'200px'
-    },
-    content: {
-        display: 'flex',
-        flexDirection: 'column'
-    },
-    header: {
-        display: 'flex',
-        alignItems: 'center'
-    },
-    details: {
-        margin: theme.spacing(1,2,1,2)
-    },
-    message: {
-        margin: theme.spacing(2,1,2,1)
-    }
+        flexGrow: 1,
+        marginLeft: '10%',
+        width: '90%',
+        wordBreak: "break-all",
+        alignItems: 'stretch',
+      },
+      paper: {
+        padding: theme.spacing(2),
+        margin: 'auto',
+        //maxWidth: 500,
+      },
+      image: {
+        maxWidth: '50%',
+        maxHeight: '50%',
+      },
+      header: {
+          display: 'flex',
+          flexDirection: 'row',
+      },
+      details: {
+          marginRight: '20px',
+      },
+      img: {
+        margin: 'auto',
+        display: 'block',
+        maxWidth: '100%',
+        maxHeight: '100%',
+      },
 })
 )

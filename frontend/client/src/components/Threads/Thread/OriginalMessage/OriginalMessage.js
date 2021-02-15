@@ -1,13 +1,10 @@
 import React from 'react';
-import { Paper, Grid, Typography} from '@material-ui/core';
+import { Paper, Grid, Typography} from '@material-ui/core'
 import useStyles from './styles'
+import ReplyButton from '../../../ReplyButton/ReplyButton'
 
 const OriginalMessage = ({ originalMessage }) => {
-    const { createdAt, inputFile, message, title } = originalMessage
-    console.log(originalMessage)
-    console.log(title)
-    console.log(message)
-    console.log(createdAt)
+    const {id, createdAt, inputFile, message, title } = originalMessage
 
     const classes = useStyles()
 
@@ -34,9 +31,7 @@ const OriginalMessage = ({ originalMessage }) => {
                                     </Typography>
                                 </Grid>
                                 <Grid item>
-                                    <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                                        Edit
-                                    </Typography>
+                                    <ReplyButton id={id} />
                                 </Grid>
                             </Grid>
                         </Grid>

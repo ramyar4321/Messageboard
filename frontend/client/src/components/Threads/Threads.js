@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core'
 import Thread from './Thread/Thread'
 import { useDispatch, useSelector } from 'react-redux'
 import {deleteThread} from '../../actions/'
+import {MAX_NUM_THREADS} from '../../constants/types'
 
 const Threads = () => {
 
@@ -12,7 +13,7 @@ const Threads = () => {
     //We want a maximum of 4 threads total.
     // If number of threads is greater the 4,
     // remove the oldest thread
-    if (threads.length > 4){
+    if (threads.length > MAX_NUM_THREADS){
         dispatch(deleteThread())
     }
 

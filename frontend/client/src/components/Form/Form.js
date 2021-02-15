@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import {useDispatch} from 'react-redux'
-import {createThread} from '../../actions/'
+import {useDispatch, useSelector} from 'react-redux'
+import {createThread, incrementThreadCounter} from '../../actions/'
 import { Grid, Paper, TextField, Typography, Button } from '@material-ui/core'
 import useStyles from './styles'
 import FileBase from 'react-file-base64'
@@ -8,24 +8,25 @@ import FileBase from 'react-file-base64'
 
 const Form = () => {
     const [formState, setFormState] = useState({title: '', message: '', inputFile: ''})
+    let id = useSelector((state) => state.threadCountReducer)
     const dispatch = useDispatch()
 
     const classes = useStyles()
 
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
         // Create and store thread
         let today = new Date().toLocaleString()
         //let today = new Date.now()
-        let originalMessage = {...formState, createdAt: today}
+        let originalMessage = {...formState, createdAt: today, id}
         let replies = []
         let thread = {originalMessage, replies}
 
-        console.log('Created Thread')
 
         dispatch(createThread(thread))
+        dispatch(incrementThreadCounter())
     }
 
     const handleClear = () => {

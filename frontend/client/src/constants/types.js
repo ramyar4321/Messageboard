@@ -1,2 +1,9 @@
 export const CREATE_THREAD = 'CREATE_THREAD'
+export const UPDATE_THREAD = 'UPDATE_THREAD'
 export const DELETE_THREAD = 'DELETE_THREAD'
+
+export const GET_THREAD_COUNT = 'GET_THREAD_COUNT'
+export const INCREMENT = 'INCREMENT'
+
+export const MAX_NUM_THREADS = 4
+export const MAX_NUM_REPLIES = 2

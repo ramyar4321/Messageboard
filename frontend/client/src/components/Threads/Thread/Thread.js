@@ -12,7 +12,7 @@ const Thread = ({ thread }) => {
     return (
         <Grid>
             <OriginalMessage originalMessage={originalMessage} />
-            {/*<Replies replyMessages={replies} />*/}
+            <Replies replies={replies} />
         </Grid>
     )
 }

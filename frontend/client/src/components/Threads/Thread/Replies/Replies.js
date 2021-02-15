@@ -2,10 +2,8 @@ import React from 'react'
 import Reply from './Reply/Reply'
 import { Grid } from '@material-ui/core';
 
-const Replies = ( { replyMessages} ) => {
-    const {replies} = replyMessages
+const Replies = ( { replies} ) => {
     console.log(replies)
-    console.log(replyMessages)
 
     return(
         <Grid>

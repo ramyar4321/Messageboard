@@ -1,34 +1,38 @@
 import React from 'react';
-import { Grid, Typography, Card, CardContent, CardMedia } from '@material-ui/core';
-import useStyles from './styles';
+import { Paper, Grid, Typography} from '@material-ui/core'
+import useStyles from './styles'
 
 const Reply = ({reply}) => {
-    const { title, message, image, createdAt } = reply
+    const { title, message, inputFile, createdAt } = reply
 
     const classes = useStyles()
     return (
-        <Grid container className={classes.root}>
-            <Grid item>
-                <Card className={classes.card}>
-                    <CardMedia
-                        className={classes.image}
-                        src={image} component="img" />
-                    <CardContent className={classes.content}>
-                        <Grid item className={classes.header}>
-                            <Typography className={classes.details}>
-                                {title}
-                        </Typography>
-                            <Typography className={classes.details}>
-                                {createdAt}
-                        </Typography>
+        <div className={classes.root}>
+        <Paper className={classes.paper}>
+            <Grid container spacing={2}>
+                <Grid item className={classes.image}>
+                    <img className={classes.img} src={inputFile} />
+                </Grid>
+                <Grid item xs={12} sm container>
+                    <Grid item xs container direction="column" spacing={2}>
+                        <Grid item xs>
+                            <Grid item className = {classes.header}>
+                                <Typography className={classes.details} variant="subtitle1">
+                                    {title}
+                                </Typography>
+                                <Typography className={classes.details} variant="subtitle1">
+                                    {createdAt}
+                                </Typography>
+                            </Grid>
+                            <Typography variant="body1">
+                                {message}
+                            </Typography>
                         </Grid>
-                        <Typography className={classes.message}>
-                            {message}
-                    </Typography>
-                    </CardContent>
-                </Card>
+                    </Grid>
+                </Grid>
             </Grid>
-        </Grid>
+        </Paper>
+    </div>
     )
 }
 

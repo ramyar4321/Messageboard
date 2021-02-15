@@ -1,9 +1,11 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-import messageReducer from './messageReducer';
+import messageReducer from './messageReducer'
+import threadCountReducer from './threadCountReducer'
 
 const allReducers = combineReducers({
-    messageReducer
+    messageReducer,
+    threadCountReducer
 })
 
 export default allReducers
