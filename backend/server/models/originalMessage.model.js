@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const OrginalMessageSchema = new mongoose.Schema({
+const OriginalMessageSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -10,13 +10,13 @@ const OrginalMessageSchema = new mongoose.Schema({
         required: false,
         default: ""
     },
-    image: {
+    inputFile: {
         type: String,
         required: false,
         default: ""
     },
-    createdAt: { type: Date, default: new Date() }
+    createdAt: { type: Date}
 })
 
 
-export default OrginalMessageSchema
+export default OriginalMessageSchema

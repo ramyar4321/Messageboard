@@ -17,11 +17,11 @@ const ReplyForm = (props) => {
     e.preventDefault()
 
     // Create and store thread
-    let today = new Date().toLocaleString()
+    let today = new Date().toISOString()
     //let today = new Date.now()
-    let reply = { ...formState, createdAt: today }
+    let replyMessage = { ...formState, createdAt: today }
 
-    dispatch(updateThread(id, reply))
+    dispatch(updateThread(id, replyMessage))
     setFormState({ message: '', inputFile: '' })
     setOpenReplyForm(false)
 

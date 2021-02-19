@@ -3,8 +3,9 @@ import { Paper, Grid, Typography} from '@material-ui/core'
 import useStyles from './styles'
 import ReplyButton from '../../../ReplyButton/ReplyButton'
 
-const OriginalMessage = ({ originalMessage }) => {
-    const {id, createdAt, inputFile, message, title } = originalMessage
+const OriginalMessage = (props) => {
+    const { _id:id, createdAt, inputFile, message, title } = props.originalMessage
+    const threadID = props.threadID
 
     const classes = useStyles()
 
@@ -31,7 +32,7 @@ const OriginalMessage = ({ originalMessage }) => {
                                     </Typography>
                                 </Grid>
                                 <Grid item>
-                                    <ReplyButton id={id} />
+                                    <ReplyButton id={threadID} />
                                 </Grid>
                             </Grid>
                         </Grid>

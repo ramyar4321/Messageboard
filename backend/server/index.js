@@ -1,5 +1,6 @@
 //import frameworks and libraries
 import express from 'express'
+import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors'
 //import messageRouter from './routes/messages.js'
@@ -10,7 +11,9 @@ dotenv.config()
 
 const app = express()
 
-app.use(express.json())
+//app.use(express.json())
+app.use(bodyParser.json({ limit: '30mb', extended: true }))
+app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors())
 app.use('/messages', router)
 

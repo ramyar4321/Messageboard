@@ -3,15 +3,12 @@ import {Grid} from '@material-ui/core'
 import OriginalMessage from './OriginalMessage/OriginalMessage'
 import Replies from './Replies/Replies'
 
-const Thread = ({ thread }) => {
-    const { originalMessage, replies } = thread
-    console.log(thread)
-    console.log(originalMessage)
-    console.log(replies)
+const Thread = (prop) => {
+    const { _id, originalMessage, replies } = prop.value
 
     return (
         <Grid>
-            <OriginalMessage originalMessage={originalMessage} />
+            <OriginalMessage threadID={_id} originalMessage={originalMessage} />
             <Replies replies={replies} />
         </Grid>
     )

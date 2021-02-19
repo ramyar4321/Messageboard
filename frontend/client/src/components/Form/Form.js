@@ -8,7 +8,6 @@ import FileBase from 'react-file-base64'
 
 const Form = () => {
     const [formState, setFormState] = useState({title: '', message: '', inputFile: ''})
-    let id = useSelector((state) => state.threadCountReducer)
     const dispatch = useDispatch()
 
     const classes = useStyles()
@@ -18,15 +17,14 @@ const Form = () => {
         e.preventDefault()
 
         // Create and store thread
-        let today = new Date().toLocaleString()
+        let today = new Date().toISOString()
         //let today = new Date.now()
-        let originalMessage = {...formState, createdAt: today, id}
+        let originalMessage = {...formState, createdAt: today}
         let replies = []
-        let thread = {originalMessage, replies}
+        let message = {originalMessage, replies}
 
 
-        dispatch(createThread(thread))
-        dispatch(incrementThreadCounter())
+        dispatch(createThread(message))
     }
 
     const handleClear = () => {

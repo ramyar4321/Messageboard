@@ -3,7 +3,7 @@ import OrginalMessage from './originalMessage.model.js'
 import ReplyMessage from './replyMessage.model.js'
 
 const ThreadSchema = new mongoose.Schema({
-    orginalPost:  OrginalMessage,
+    originalMessage:  OrginalMessage,
     replies: [ReplyMessage]
 })
 

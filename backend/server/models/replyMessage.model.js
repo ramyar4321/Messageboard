@@ -5,12 +5,12 @@ const ReplyMessageSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    image: {
+    inputFile: {
         type: String,
         required: false,
         default: ""
     },
-    createdAt: { type: Date, default: new Date() }
+    createdAt: { type: Date }
 })
 
 

@@ -2,8 +2,8 @@ import React from 'react';
 import { Paper, Grid, Typography} from '@material-ui/core'
 import useStyles from './styles'
 
-const Reply = ({reply}) => {
-    const { title, message, inputFile, createdAt } = reply
+const Reply = (prop) => {
+    const { _id, title, message, inputFile, createdAt } = prop.value
 
     const classes = useStyles()
     return (

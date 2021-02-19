@@ -1,18 +1,16 @@
-import { CREATE_THREAD, UPDATE_THREAD, DELETE_THREAD } from '../constants/types'
+import { GET_THREADS, CREATE_THREAD, UPDATE_THREAD, DELETE_THREAD } from '../constants/types'
 
 const messageReducer = (threads = [], action) => {
     switch (action.type) {
+        case GET_THREADS:
+            //console.log(action.payload)
+            return action.payload
         case CREATE_THREAD:
             return [...threads, action.payload]
         case UPDATE_THREAD:
-            //return threads.map((thread) => (thread.originalMessage.id === action.payload.id ? action.payload.thread : thread))
-            return threads.map((thread) => {
-                if (thread.originalMessage.id === action.payload.id)
-                    thread.replies = [...thread.replies, action.payload.reply]
-                return thread
-            })
+            return threads.map((thread) => (thread._id === action.payload.id ? action.payload.thread : thread))
         case DELETE_THREAD:
-            return threads.slice(1)
+            return threads.filter((thread) => thread.id !== action.payload)
         default:
             return threads
     }

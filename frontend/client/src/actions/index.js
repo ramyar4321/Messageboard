@@ -1,37 +1,56 @@
-import { CREATE_THREAD, UPDATE_THREAD, DELETE_THREAD,GET_THREAD_COUNT, INCREMENT } from '../constants/types'
+import { GET_THREADS, CREATE_THREAD, UPDATE_THREAD, DELETE_THREAD} from '../constants/types'
 
-export const createThread = (thread) => {
+import * as api from '../api'
 
-    return {
-        type: CREATE_THREAD,
-        payload: thread
+export const getThreads = () => async (dispatch) => {
+    try {
+        const res = await api.getThreads()
+
+        dispatch({ type: GET_THREADS, payload: res.data })
+    } catch (error) {
+        //TODO
+        console.log(error)
+        
     }
 }
 
-export const updateThread = (id, reply) => {
-    return {
-        type: UPDATE_THREAD,
-        payload: {
+export const createThread = (originalMessage) => async (dispatch) => {
+    try {
+        const res  = await api.createThread(originalMessage)
+
+        dispatch({ type: CREATE_THREAD, payload: res.data})
+    } catch (error) {
+        //TODO
+        console.log(error)
+    }
+}
+
+export const updateThread = (id, replyMessage)  => async (dispatch) => {
+    try {
+        console.log(id)
+        console.log(replyMessage)
+        const res = await api.updateThread(id, replyMessage)
+        console.log(res)
+
+        let payload = {
             id,
-            reply
+            thread: res.data
         }
+        
+        dispatch({ type: UPDATE_THREAD, payload})
+    } catch (error) {
+        //TODO
+        console.log(error)
     }
 }
 
-export const deleteThread = () => {
-    return {
-        type: DELETE_THREAD
-    }
-}
-
-export const getThreadCount = () => {
-    return {
-        type: GET_THREAD_COUNT
-    }
-}
-
-export const incrementThreadCounter = () => {
-    return {
-        type: INCREMENT
+export const deleteThread = (id)  => async (dispatch) => {
+    try {
+        await api.updateThread(id)
+        
+        dispatch({ type: DELETE_THREAD, payload: id})
+    } catch (error) {
+        //TODO
+        console.log(error)
     }
 }
