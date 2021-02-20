@@ -7,9 +7,11 @@ import useStyles from './styles'
 import FileBase from 'react-file-base64'
 
 const ReplyForm = (props) => {
-  const { id, openReplyForm, setOpenReplyForm } = props
+  const { threadID, openReplyForm, setOpenReplyForm } = props
   const [formState, setFormState] = useState({ message: '', inputFile: '' })
   const dispatch = useDispatch()
+
+  console.log(threadID)
 
   const classes = useStyles()
 
@@ -21,10 +23,15 @@ const ReplyForm = (props) => {
     //let today = new Date.now()
     let replyMessage = { ...formState, createdAt: today }
 
-    dispatch(updateThread(id, replyMessage))
+    dispatch(updateThread(threadID, replyMessage))
     setFormState({ message: '', inputFile: '' })
     setOpenReplyForm(false)
 
+  }
+
+  const handleClose = () => {
+    setOpenReplyForm(false)
+    handleClear()
   }
 
   const handleClear = () => {
@@ -36,7 +43,7 @@ const ReplyForm = (props) => {
       <DialogTitle>
         <div>
           <Typography variant="h6">Reply Form</Typography>
-          <IconButton onClick={() => setOpenReplyForm(false)}>
+          <IconButton onClick={handleClose}>
             <CloseIcon />
           </IconButton>
         </div>

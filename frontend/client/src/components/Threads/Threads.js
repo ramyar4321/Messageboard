@@ -1,12 +1,22 @@
 import React, { useEffect } from 'react'
 import { Grid } from '@material-ui/core'
 import Thread from './Thread/Thread'
-import { useSelector } from 'react-redux'
-import {MAX_NUM_THREADS} from '../../constants/types'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteThread } from '../../actions/'
+import { MAX_NUM_THREADS } from '../../constants/types'
+
 
 const Threads = () => {
-
     const threads = useSelector((state) => state.messageReducer)
+    const dispatch = useDispatch()
+
+    useEffect( ()=>{
+        if (threads.length > MAX_NUM_THREADS){
+            //Remove oldest thread
+            dispatch(deleteThread(threads[0]._id))
+            
+        }
+    }, [threads, dispatch])
 
     return (
         <Grid container justify="center">

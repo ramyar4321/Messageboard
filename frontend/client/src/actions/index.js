@@ -46,7 +46,7 @@ export const updateThread = (id, replyMessage)  => async (dispatch) => {
 
 export const deleteThread = (id)  => async (dispatch) => {
     try {
-        await api.updateThread(id)
+        await api.deleteThread(id)
         
         dispatch({ type: DELETE_THREAD, payload: id})
     } catch (error) {

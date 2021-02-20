@@ -10,7 +10,7 @@ const messageReducer = (threads = [], action) => {
         case UPDATE_THREAD:
             return threads.map((thread) => (thread._id === action.payload.id ? action.payload.thread : thread))
         case DELETE_THREAD:
-            return threads.filter((thread) => thread.id !== action.payload)
+            return threads.filter((thread) => thread._id !== action.payload)
         default:
             return threads
     }

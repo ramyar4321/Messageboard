@@ -6,6 +6,10 @@ import ReplyButton from '../../../ReplyButton/ReplyButton'
 const OriginalMessage = (props) => {
     const { _id:id, createdAt, inputFile, message, title } = props.originalMessage
     const threadID = props.threadID
+    const threadLimitReached= props.threadLimitReached
+    console.log(props)
+    console.log(threadLimitReached)
+    console.log(threadID)
 
     const classes = useStyles()
 
@@ -32,7 +36,7 @@ const OriginalMessage = (props) => {
                                     </Typography>
                                 </Grid>
                                 <Grid item>
-                                    <ReplyButton id={threadID} />
+                                    <ReplyButton threadID={threadID}  isButtonDisabled={threadLimitReached}/>
                                 </Grid>
                             </Grid>
                         </Grid>
