@@ -1,16 +1,18 @@
 import useStyles from './styles'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import { Grid } from '@material-ui/core'
+import { CssBaseline, Grid } from '@material-ui/core'
 
 const Loading = () => {
     const classes = useStyles()
 
     return (
-        <Grid container justify="center">
-            <Grid item xs={12} className={classes.root}>
-                <CircularProgress />
+        <CssBaseline>
+            <Grid container className={classes.root}>
+                <Grid container item xs={12} justify="center" alignContent="center" direction="column">
+                    <CircularProgress size={80}/>
+                </Grid>
             </Grid>
-        </Grid>
+        </CssBaseline>
     )
 }
 
