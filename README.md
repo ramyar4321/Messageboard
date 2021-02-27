@@ -26,3 +26,4 @@ Only [Black box-testing](https://en.wikipedia.org/wiki/Black-box_testing) of the
 * The UI design is very bland and should be more welcoming.
 * Every image that is uploaded is first converted into Base64 string then stored into the MongoDB. This can cause issues when dealing with large image files and with many requests to the database. A better design would be to store the image onto a filesystem and store the location address to the database.
 * Both OriginalMessage and ReplyMessager componenets share similar code since they both are messages. In order to adhere to the [DRY Principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), the rendering code should be extracted to another component, named Message, ,and have OriginalMessage and ReplyMessager use Message.
+* Use [Formik](https://formik.org/) to create and validate forms.
