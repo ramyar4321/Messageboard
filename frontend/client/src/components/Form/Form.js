@@ -18,7 +18,6 @@ const Form = () => {
 
         // Create and store thread
         let today = new Date().toISOString()
-        //let today = new Date.now()
         let originalMessage = {...formState, createdAt: today}
         let replies = []
         let message = {originalMessage, replies}

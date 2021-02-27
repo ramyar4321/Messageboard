@@ -11,8 +11,6 @@ const ReplyForm = (props) => {
   const [formState, setFormState] = useState({ message: '', inputFile: '' })
   const dispatch = useDispatch()
 
-  console.log(threadID)
-
   const classes = useStyles()
 
   const handleSubmit = (e) => {
@@ -20,7 +18,6 @@ const ReplyForm = (props) => {
 
     // Create and store thread
     let today = new Date().toISOString()
-    //let today = new Date.now()
     let replyMessage = { ...formState, createdAt: today }
 
     dispatch(updateThread(threadID, replyMessage))

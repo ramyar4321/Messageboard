@@ -38,18 +38,13 @@ export const postThread = (req, res) => {
 
 export const updateThread = (req, res) => {
     const { id } = req.params
-    console.log(id)
-    console.log(req.params)
-    //console.log(req)
     const reply = req.body
-    //console.log(reply)
 
     Thread.findOneAndUpdate(
         {_id: id},
         {$push: {replies: reply}},
         {new: true}
     ).then((thread) =>{
-        //console.log(thread)
         res.status(201).json(thread)
     }).catch((err) => {
         res.status(409).json({message: "Error: " + err})

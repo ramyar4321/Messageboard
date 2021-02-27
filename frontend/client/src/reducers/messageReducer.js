@@ -3,7 +3,6 @@ import { GET_THREADS, CREATE_THREAD, UPDATE_THREAD, DELETE_THREAD } from '../con
 const messageReducer = (threads = [], action) => {
     switch (action.type) {
         case GET_THREADS:
-            //console.log(action.payload)
             return action.payload
         case CREATE_THREAD:
             return [...threads, action.payload]

@@ -1,9 +1,7 @@
-//import frameworks and libraries
 import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors'
-//import messageRouter from './routes/messages.js'
 import router from './routes/messages.js'
 import dotenv from 'dotenv'
 

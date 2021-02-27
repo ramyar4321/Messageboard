@@ -7,9 +7,6 @@ const OriginalMessage = (props) => {
     const { _id:id, createdAt, inputFile, message, title } = props.originalMessage
     const threadID = props.threadID
     const threadLimitReached= props.threadLimitReached
-    console.log(props)
-    console.log(threadLimitReached)
-    console.log(threadID)
 
     const classes = useStyles()
 
