@@ -1,5 +1,7 @@
 # Message Board
-This project is a [Message Board](https://en.wikipedia.org/wiki/Internet_forum). The purpose of this project was to apply my self-taught knowledge of the [MERN stack](https://www.mongodb.com/mern-stack).
+This project is a [Message Board](https://en.wikipedia.org/wiki/Internet_forum). The purpose of this project was to apply my self-taught knowledge of the [MERN stack](https://www.mongodb.com/mern-stack). The site is deployed [here](https://determined-ride-a26e1f.netlify.app/).
+## Usage
+The site is deployed [here](https://determined-ride-a26e1f.netlify.app/). Backend was deployed using [Heroku](https://www.heroku.com/free) and frontend was deployed using [Netlify](https://www.netlify.com/).
 ## Project specification
 This Message Board is a version of an [Imageboard](https://en.wikipedia.org/wiki/Imageboard). The message board is made up of Threads. Each Thread is comprised of a series of messages. There are two types of messages:
 1. Original Message which is the main or starting message for each Thread. The Original Message will have an image, title, message, creation date, and reply button. The image can be optional.
@@ -27,3 +29,4 @@ Only [Black box-testing](https://en.wikipedia.org/wiki/Black-box_testing) of the
 * Every image that is uploaded is first converted into Base64 string then stored into the MongoDB. This can cause issues when dealing with large image files and with many requests to the database. A better design would be to store the image onto a filesystem and store the location address to the database.
 * Both OriginalMessage and ReplyMessager componenets share similar code since they both are messages. In order to adhere to the [DRY Principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), the rendering code should be extracted to another component, named Message, ,and have OriginalMessage and ReplyMessager use Message.
 * Use [Formik](https://formik.org/) to create and validate forms.
+* Add the option to reply to other replies. 

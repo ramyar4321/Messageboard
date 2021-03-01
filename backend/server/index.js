@@ -15,6 +15,8 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors())
 app.use('/messages', router)
 
+const port = process.env.PORT || 3000
+
 
 mongoose.connect(process.env.CONNECTION_URL,
     {
@@ -24,17 +26,16 @@ mongoose.connect(process.env.CONNECTION_URL,
         useUnifiedTopology: true,
     }).then(() => {
         console.log("Successfully connected to database")
+        app.listen(port, () => {
+            console.log("Succesfully running server on PORT " + port)
+        }).on('error', (err) => {
+            if (err.errno === 'EADDRINUSE') {
+                console.log("PORT " + port + " in use")
+            } else {
+                console.log(err)
+            }
+        })
     }).catch((err) =>
         console.log("Connection failed with error:" + err)
     );
-
-app.listen(process.env.PORT, () => {
-    console.log("Succesfully running server on PORT " + process.env.PORT)
-}).on('error', (err) => {
-    if (err.errno === 'EADDRINUSE') {
-        console.log("PORT " + process.env.PORT + " in use")
-    } else {
-        console.log(err)
-    }
-})
 

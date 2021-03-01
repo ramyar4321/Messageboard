@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:3000/messages';
+const url = 'https://message-board-project.herokuapp.com/messages';
 
 export const getThreads = () => axios.get(url)
 export const createThread = (message) => axios.post(url, message)
